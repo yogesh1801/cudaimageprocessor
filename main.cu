@@ -71,11 +71,11 @@ int main() {
     rgb_to_grayscale<<<gridSize, blockSize>>>(d_input, d_grayscale, width, height);
     
     int kernelSize = 9;  
-    int numPasses = 3;  
+    int numPasses = 5;  
     
     for (int i = 0; i < numPasses; i++) {
         if (i % 2 == 0) {
-            box_blur<<<gridSize, blockSize>>>(d_grayscale, d_blurred1, width, height, kernelSize);
+            box_blur<<<gridSize, blockSize>>>(i==0 ? d_grayscale:d_blurred2, d_blurred1, width, height, kernelSize);
         } else {
             box_blur<<<gridSize, blockSize>>>(d_blurred1, d_blurred2, width, height, kernelSize);
         }
