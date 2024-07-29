@@ -22,7 +22,7 @@ This project demonstrates basic image processing techniques using CUDA and OpenC
 
 2. Clone this repository:
 ```sh
-https://github.com/yogesh1801/cudaimageprocessor.git
+git clone https://github.com/yogesh1801/cudaimageprocessor.git
 ```
 
 3.Compile the project:
